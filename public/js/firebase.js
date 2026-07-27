@@ -3,12 +3,12 @@
     import { getStorage, ref, uploadString, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyCNmMZ-7HUkn3geqPO7YMMAT83LtiPu-Bo",
-      authDomain: "sales-crm-82b62.firebaseapp.com",
-      projectId: "sales-crm-82b62",
-      storageBucket: "sales-crm-82b62.firebasestorage.app",
-      messagingSenderId: "999829133514",
-      appId: "1:999829133514:web:bb5a036656274b3614fc33"
+      apiKey: "AIzaSyBjmkmfLLPXbuWTeks8tpdfbD1gUoSKT84",
+      authDomain: "giftlandiya-crm.firebaseapp.com",
+      projectId: "giftlandiya-crm",
+      storageBucket: "giftlandiya-crm.firebasestorage.app",
+      messagingSenderId: "351346693064",
+      appId: "1:351346693064:web:361db625bc9d56c213e6fd"
     };
 
     const app = initializeApp(firebaseConfig);
