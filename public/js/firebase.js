@@ -6,7 +6,7 @@
       apiKey: "AIzaSyBjmkmfLLPXbuWTeks8tpdfbD1gUoSKT84",
       authDomain: "giftlandiya-crm.firebaseapp.com",
       projectId: "giftlandiya-crm",
-      storageBucket: "giftlandiya-crm.firebasestorage.app",
+      storageBucket: "sales-crm-82b62.firebasestorage.app",
       messagingSenderId: "351346693064",
       appId: "1:351346693064:web:361db625bc9d56c213e6fd"
     };
