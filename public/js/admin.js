@@ -373,49 +373,6 @@ function removeImg(){D.imgD='';D.imgList=[];document.getElementById('imgF').valu
 
 // Legacy - eski kod uchun
 function handleImg(inp){handleImgMulti(inp);}
-function fillProdIg(selId){
-  const firstId=selId!=null?selId:(D.ig.length?D.ig[0].id:null);
-  const hid=document.getElementById('pIgVal');
-  if(hid) hid.value=firstId!=null?firstId:'';
-  const btnText=document.getElementById('pIgBtnText');
-  if(btnText){
-    const sel=D.ig.find(ig=>ig.id==firstId);
-    btnText.textContent=sel?sel.name:'Tanlang';
-  }
-  const drop=document.getElementById('pIgDrop');
-  if(!drop) return;
-  drop.innerHTML=D.ig.map(ig=>{
-    const on=ig.id==firstId;
-    return`<div onclick="selectProdIg(${ig.id})" style="padding:10px 14px;font-size:14px;cursor:pointer;background:${on?'var(--pbg)':'transparent'};color:${on?'var(--p)':'var(--c1)'};font-weight:${on?'600':'400'};border-bottom:1px solid var(--bd);transition:background .15s" onmouseover="this.style.background='var(--bg2)'" onmouseout="this.style.background='${on?'var(--pbg)':'transparent'}'">${ig.name}</div>`;
-  }).join('');
-}
-function selectProdIg(id){
-  const hid=document.getElementById('pIgVal');
-  if(hid) hid.value=id;
-  const sel=D.ig.find(ig=>ig.id==id);
-  const btnText=document.getElementById('pIgBtnText');
-  if(btnText) btnText.textContent=sel?sel.name:'Tanlang';
-  const drop=document.getElementById('pIgDrop');
-  if(drop){
-    drop.style.display='none';
-    drop.querySelectorAll('div').forEach(d=>{
-      const on=d.getAttribute('onclick')==='selectProdIg('+id+')';
-      d.style.background=on?'var(--pbg)':'transparent';
-      d.style.color=on?'var(--p)':'var(--c1)';
-      d.style.fontWeight=on?'600':'400';
-    });
-  }
-}
-function toggleProdIgDrop(){
-  const drop=document.getElementById('pIgDrop');
-  if(!drop) return;
-  const open=drop.style.display==='none';
-  drop.style.display=open?'block':'none';
-  if(open){
-    const close=e=>{if(!document.getElementById('pIg').contains(e.target)){drop.style.display='none';document.removeEventListener('click',close);}};
-    setTimeout(()=>document.addEventListener('click',close),0);
-  }
-}
 function openAddProd(){
   D.ePid=null;D.imgD='';D.imgList=[];
   document.getElementById('pShT').textContent="Mahsulot qo'shish";
@@ -423,7 +380,6 @@ function openAddProd(){
   document.getElementById('pPr').value='';
   document.getElementById('pCost').value='';
   document.getElementById('pStock').value='';
-  fillProdIg(D.ig.length?D.ig[0].id:null);
   D.imgList=[];renderImgPreviews();
   document.getElementById('prodSh').classList.add('show');
 }
@@ -435,7 +391,6 @@ function openEditProd(id){
   document.getElementById('pPr').value=p.price;
   document.getElementById('pCost').value=p.cost||0;
   document.getElementById('pStock').value=p.stock!==undefined?p.stock:'';
-  fillProdIg(p.igId||null);
   renderImgPreviews();
   document.getElementById('prodSh').classList.add('show');
 }
@@ -470,7 +425,6 @@ window.saveProd = async function(){
   const cost=Math.max(0,parseInt(costRaw)||0);
   const stockVal=document.getElementById('pStock').value.trim();
   const stock=stockVal!==''?parseInt(stockVal):null;
-  const igId=parseInt(document.getElementById('pIgVal').value)||null;
   const errEl=document.getElementById('pErr');
   const missing=[];
   if(!name) missing.push('Mahsulot nomi');
@@ -503,9 +457,9 @@ window.saveProd = async function(){
 
   if(D.ePid){
     const p=gP(D.ePid);
-    if(p){p.name=name;p.price=price;p.cost=cost;p.img=firstImg;p.imgs=uploadedUrls;p.igId=igId;if(stock!==null)p.stock=stock;}
+    if(p){p.name=name;p.price=price;p.cost=cost;p.img=firstImg;p.imgs=uploadedUrls;if(stock!==null)p.stock=stock;}
   } else {
-    D.products.push({id:D.nPid++,name,price,cost,stock:stock!==null?stock:null,color:'#B5D4F4',img:firstImg,imgs:uploadedUrls,igId});
+    D.products.push({id:D.nPid++,name,price,cost,stock:stock!==null?stock:null,color:'#B5D4F4',img:firstImg,imgs:uploadedUrls,igId:null});
   }
   if(window.FS){const saved=D.ePid?gP(D.ePid):D.products[D.products.length-1];await window.FS.saveProduct(saved);}
   closeSh('prodSh');renderProdAdm();

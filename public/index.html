@@ -489,7 +489,6 @@
       </div>
       <input type="file" id="imgF" accept="image/*" multiple style="display:none" onchange="handleImgMulti(this)">
     </div>
-    <div class="fg"><label class="fl">Instagram profil</label><div id="pIg" style="position:relative"><button type="button" onclick="toggleProdIgDrop()" id="pIgBtn" style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1.5px solid var(--bd);border-radius:10px;background:var(--bg1);color:var(--c1);font-size:14px;cursor:pointer;font-family:inherit;text-align:left"><span id="pIgBtnText">Tanlang</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div id="pIgDrop" style="display:none;position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--bg1);border:1.5px solid var(--bd);border-radius:10px;z-index:50;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.12)"></div></div><input type="hidden" id="pIgVal"></div>
     <div class="fg"><label class="fl">Mahsulot nomi</label><input class="inp" type="text" id="pN" placeholder="Masalan: Ko'zoynak"></div>
     <div class="fg"><label class="fl">Narx (so'm)</label><input class="inp" type="number" id="pPr" placeholder="1500000" min="0" oninput="if(this.value<0)this.value=''"></div>
     <div class="fg"><label class="fl">Tannarx (so'm)</label><input class="inp" type="number" id="pCost" placeholder="Sotib olish narxi" min="0" oninput="if(this.value<0)this.value=''"></div>
