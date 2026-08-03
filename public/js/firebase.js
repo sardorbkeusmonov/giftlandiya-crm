@@ -59,12 +59,6 @@
             if(selSeen2.has(k))return false;
             selSeen2.add(k);return true;
           });
-          // Mobilograf yo'q bo'lsa qo'shamiz
-          if(!D.sellers.find(s=>s.role==='mobilograf')){
-            const mob={id:D.nUid++,name:'Mobilograf',login:'mob_'+Date.now(),pass:'',igId:null,role:'mobilograf',comm:0,salary:0,startDate:today(),ai:D.sellers.length%6};
-            D.sellers.push(mob);
-            await window.FS.saveSeller(mob);
-          }
         }
         // Instagram
         if (!igSnap.empty) {
