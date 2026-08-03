@@ -78,7 +78,7 @@ function renderProdAdm(){
   <div style="flex:1;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;min-width:0">
     <div>
       <div style="font-size:14px;font-weight:700;margin-bottom:3px">${p.name}</div>${stockBadge}
-      <div style="font-size:14px;color:#5b21b6;font-weight:600;margin-bottom:3px">${gI(p.igId)?gI(p.igId).name:'Instagram biriktirilmagan'}</div>
+      <div style="font-size:14px;color:#5b21b6;font-weight:600;margin-bottom:3px">${gI(p.igId)?gI(p.igId).name:''}</div>
       <div style="font-size:13px;color:#185FA5;font-weight:600;margin-bottom:2px">${fmt(p.price)} so'm</div>
       <div style="font-size:14px;color:var(--c4)">Sotildi: ${tot} ta</div>
     </div>
