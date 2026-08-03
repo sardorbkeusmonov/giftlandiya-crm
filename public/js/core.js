@@ -15,7 +15,6 @@ let D={
     {id:4,name:'Shahzoda',login:'shahzoda',pass:'1234',igId:4,ai:3,role:'sotuvchi',comm:10000},
     {id:5,name:'Sardorbek Usmonov',login:'target',pass:'1234',igId:null,ai:4,role:'targetolog'},
     {id:6,name:'Omborchi',login:'omborchi',pass:'1234',igId:null,ai:5,role:'omborchi'},
-    {id:7,name:'Mobilograf',login:'mob_init',pass:'',igId:null,ai:6,role:'mobilograf',comm:0,salary:0},
   ],
   ig:[
     {id:1,name:'@takbir.shop'},
